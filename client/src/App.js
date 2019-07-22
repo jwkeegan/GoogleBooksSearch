@@ -9,13 +9,15 @@ import Saved from "./pages/Saved";
 function App() {
   return (
     <Router>
-      <div >
+      <div>
         <Nav />
-        <Jumbotron />
-        <Switch>
-          <Route exact path="/" component={Books} />
-          <Route exact path="/saved" component={Saved} />
-        </Switch>
+        <div className="container">
+          <Jumbotron />
+          <Switch>
+            <Route exact path="/" component={Books} />
+            <Route exact path="/saved" component={Saved} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );
