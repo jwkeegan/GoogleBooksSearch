@@ -14,9 +14,15 @@ class Saved extends Component {
 
     loadBooks = () => {
         API.getBooks()
-          .then(res => this.setState({ books: res.data }))
-          .catch(err => console.log(err));
-      };
+            .then(res => this.setState({ books: res.data }))
+            .catch(err => console.log(err));
+    };
+
+    deleteBook = (id) => {
+        API.deleteBook(id)
+            .then(res => this.setState({ books: res.data }))
+            .catch(err => console.log(err));
+    }
 
     render() {
         return (
@@ -32,6 +38,12 @@ class Saved extends Component {
                                                 {book.title} by {book.author}
                                             </strong>
                                         </a>
+                                        <hr></hr>
+                                        <div>
+                                            <img src={book.image} alt="" style={{ float: "left", marginRight: "10px" }}></img>
+                                            <p>{book.description}</p>
+                                        </div>
+                                        <button className="btn btn-danger" style={{ float: "right" }} onClick={() => this.deleteBook(book._id)}>Delete Book</button>
                                     </ListItem>
                                 ))}
                             </List>

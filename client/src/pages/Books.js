@@ -4,8 +4,8 @@ import { Input, FormBtn } from "../components/Form";
 import { List, ListItem } from "../components/List";
 import API from "../utils/API";
 
-require("dotenv").config({ path: "../" });
-const test = process.env.API_KEY;
+require("dotenv").config();
+const test = process.env;
 const axios = require("axios");
 const API_KEY = "AIzaSyAHpogOfKyZzmg9DlwQ8_i6VABJAYomvjw";
 
@@ -79,7 +79,7 @@ class Books extends Component {
                                             <img src={book.volumeInfo.imageLinks.thumbnail} alt="" style={{ float: "left", marginRight: "10px" }}></img>
                                             <p>{book.volumeInfo.description}</p>
                                         </div>
-                                        <button className="btn btn-primary" onClick={() => this.saveBook(book)}>Save Book</button>
+                                        <button className="btn btn-primary" style={{ float: "right"}} onClick={() => this.saveBook(book)}>Save Book</button>
                                     </ListItem>
                                 ))}
                             </List>
