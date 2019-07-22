@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 import { List, ListItem } from "../components/List";
+import API from "../utils/API";
 
 require("dotenv").config({ path: "../" });
 const test = process.env.API_KEY;
@@ -37,6 +38,16 @@ class Books extends Component {
             .catch(err => console.log(err));
     }
 
+    saveBook = (book) => {
+        API.saveBook({
+            title: book.volumeInfo.title,
+            authors: book.volumeInfo.authors.join(", "),
+            description: book.volumeInfo.description,
+            image: book.volumeInfo.imageLinks.thumbnail,
+            link: book.volumeInfo.previewLink,
+        });
+    }
+
     render() {
         return (
             <Container fluid>
@@ -68,6 +79,7 @@ class Books extends Component {
                                             <img src={book.volumeInfo.imageLinks.thumbnail} alt="" style={{ float: "left", marginRight: "10px" }}></img>
                                             <p>{book.volumeInfo.description}</p>
                                         </div>
+                                        <button className="btn btn-primary" onClick={() => this.saveBook(book)}>Save Book</button>
                                     </ListItem>
                                 ))}
                             </List>
