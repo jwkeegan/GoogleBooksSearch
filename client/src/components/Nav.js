@@ -7,13 +7,13 @@ function Nav() {
                 <a className="navbar-brand" href="/">
                     Google Books
                 </a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Search</a>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item">
+                            <a className="nav-link" href="/">Search</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/saved">Saved</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/saved">Saved</a>
                         </li>
                     </ul>
                 </div>
